@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirim Pesan - Portofolio Rekayasa Sistem Komputer</title>
+    <!-- Google Fonts: Playfair Display for classic serif, Courier Prime for typewriter feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Efek CRT / Noise Overlay -->
+    <div class="crt-noise"></div>
+
+    <!-- Navigasi Utama -->
+    <nav class="vintage-nav">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about.html">Tentang</a></li>
+            <li><a href="projects.html">Proyek</a></li>
+            <li><a href="experience.html">Pengalaman</a></li>
+            <li><a href="contact.html" class="active">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Bagian Footer & Kontak (Desain Amplop) -->
+    <footer id="contact" class="contact-section">
+        <h2 class="section-title">Kirim Pesan</h2>
+        <div class="envelope-container">
+            <div class="envelope-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="mono-text">Nama Pengirim:</label>
+                        <input type="text" id="name" name="name" required class="vintage-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="mono-text">Isi Surat:</label>
+                        <textarea id="message" name="message" rows="4" required class="vintage-input"></textarea>
+                    </div>
+                    <button type="submit" class="stamp-btn vintage-border">KIRIM SURAT</button>
+                </form>
+            </div>
+            <div class="stamp-decoration">
+                <!-- PLACEHOLDER: Anda bisa mengganti ini dengan gambar perangko jadul menggunakan background-image CSS -->
+                <div class="postage-stamp">Rp.50</div>
+            </div>
+        </div>
+
+        <!-- Kotak Kontak WhatsApp (Telegram Bergaya Vintage) -->
+        <div class="telegram-container vintage-box"
+            style="margin-top: 1rem; margin-bottom: 3rem; max-width: 650px; width: 100%; text-align: center; background-color: rgba(255, 255, 255, 0.4); border: 2px solid var(--clr-sepia); border-radius: 4px; box-shadow: 6px 6px 0px var(--clr-sepia);">
+            <h3
+                style="margin-bottom: 0.5rem; letter-spacing: 1px; font-family: var(--font-mono); color: var(--clr-sepia); text-transform: uppercase;">
+                Telegram Kilat (WhatsApp)</h3>
+            <p class="mono-text" style="font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--clr-text-main);">
+                Ingin respon yang lebih cepat? Kirimkan pesan langsung melalui WhatsApp:
+            </p>
+            <!-- EDIT DI SINI: Ganti '628xxxxxxxxxx' dengan nomor WhatsApp Anda (Gunakan kode negara, misal 62 untuk Indonesia) -->
+            <a href="https://wa.me/6289666614474" target="_blank" class="stamp-btn vintage-border"
+                style="text-decoration: none; display: inline-block; padding: 12px 24px; font-size: 1rem; border-radius: 3px; box-shadow: 3px 3px 0px var(--clr-olive);">
+                KIRIM WHATSAPP
+            </a>
+        </div>
+
+        <div class="social-links mono-text">
+            <!-- PANDUAN EDIT SOSIAL MEDIA: Ganti tanda '#' di dalam href dengan link profil Anda -->
+            <a href="https://github.com/Xwan-byte" target="_blank">[ Github ]</a>
+            <a href="https://www.linkedin.com/in/adi-kurniawan-854523410/" target="_blank">[ LinkedIn ]</a>
+            <a href="mailto:adkawan04@gmail.com">[ Email ]</a>
+            <a href="https://wa.me/6289666614474" target="_blank">[ WhatsApp ]</a>
+        </div>
+        <p class="copyright mono-text">&copy; 2026. Ditulis dengan kode murni.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

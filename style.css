@@ -1,0 +1,552 @@
+/* --- Variabel & Tema Skena/Vintage --- */
+:root {
+    /* Palet warna hangat & usang */
+    --clr-bg-paper: #eaddcf;
+    /* Krem kertas tua */
+    --clr-bg-paper-dark: #d5c3aa;
+    /* Krem gelap untuk kedalaman */
+    --clr-text-main: #2b2b2b;
+    /* Abu-abu gelap kehitaman */
+    --clr-sepia: #704214;
+    /* Coklat sepia */
+    --clr-olive: #6b705c;
+    /* Hijau zaitun pudar */
+
+    /* Tipografi */
+    --font-serif: 'Playfair Display', serif;
+    /* Font koran klasik */
+    --font-mono: 'Courier Prime', 'Courier New', monospace;
+    /* Font mesin tik/teknikal */
+}
+
+/* --- Gaya Dasar --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--clr-bg-paper);
+    color: var(--clr-text-main);
+    font-family: var(--font-serif);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Efek tekstur dasar kertas */
+    background-image: radial-gradient(var(--clr-bg-paper-dark) 5%, transparent 5%);
+    background-size: 10px 10px;
+    background-position: 0 0, 5px 5px;
+    /* Placeholder: Anda dapat menambahkan background-image tekstur kertas asli di sini */
+}
+
+/* --- Efek CRT / Overlay Noise Statis --- */
+.crt-noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    /* Agar tidak menghalangi interaksi klik */
+    z-index: 9999;
+    opacity: 0.04;
+    /* Sangat tipis/subtle */
+    /* Membuat efek noise menggunakan SVG filter base64 */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Garis scan (scanline) CRT tipis */
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.03) 50%);
+    z-index: 9998;
+    background-size: 100% 4px;
+    pointer-events: none;
+}
+
+/* --- Utilitas Tipografi --- */
+h1,
+h2,
+h3,
+h4 {
+    color: var(--clr-sepia);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.mono-text {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--clr-sepia);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+/* --- Bingkai/Border Klasik (Placeholder Ornamen) --- */
+.vintage-border {
+    border: 3px solid var(--clr-sepia);
+    padding: 5px;
+    background-color: var(--clr-bg-paper);
+    /* Sedikit tidak beraturan (uneven) untuk memberikan kesan digambar manual/tua */
+    border-radius: 2px 255px 3px 25px / 255px 5px 225px 3px;
+    /* Placeholder: Anda juga dapat menggunakan border-image dengan file ornamen border jadul di sini */
+}
+
+/* --- Navigasi --- */
+.vintage-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(234, 221, 207, 0.95);
+    border-bottom: 2px dashed var(--clr-olive);
+    z-index: 1000;
+    padding: 1rem 0;
+    backdrop-filter: blur(5px);
+}
+
+.vintage-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.vintage-nav a {
+    text-decoration: none;
+    color: var(--clr-sepia);
+    font-family: var(--font-mono);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.vintage-nav a:hover,
+.vintage-nav a.active {
+    color: var(--clr-olive);
+    border-bottom: 1px solid var(--clr-olive);
+}
+
+/* --- Gaya Umum Section --- */
+section,
+footer {
+    padding: 7rem 2rem 4rem;
+    /* Padding top ekstra untuk navbar */
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Bagian Hero --- */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 0;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-container {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 2rem;
+    border-radius: 50% !important;
+    /* Menimpa vintage-border agar bulat sempurna */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    /* Menghilangkan padding agar foto memenuhi area border secara penuh */
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(50%) contrast(1.1) brightness(0.9);
+    /* Filter foto retro bawaan CSS */
+}
+
+` .name-title {
+    font-size: 4rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    color: var(--clr-olive);
+    font-weight: normal;
+}
+
+/* Kursor berkedip untuk efek pengetikan */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    color: var(--clr-olive);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* --- Bagian Tentang Saya (Layout Koran) --- */
+.newspaper-layout .article-content {
+    column-count: 2;
+    /* Format 2 kolom */
+    column-gap: 3rem;
+    column-rule: 1px solid var(--clr-olive);
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+.drop-cap {
+    float: left;
+    font-size: 4.5rem;
+    line-height: 0.8;
+    padding-top: 4px;
+    padding-right: 8px;
+    color: var(--clr-sepia);
+    font-weight: bold;
+}
+
+/* --- Bagian Galeri Proyek (Kartu Polaroid) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    width: 100%;
+}
+
+.polaroid-card {
+    background: #fffdf9;
+    /* Kertas foto putih agak menguning */
+    padding: 15px 15px 45px 15px;
+    /* Ruang lebih di bawah untuk caption */
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Sedikit rotasi acak untuk nuansa natural */
+.polaroid-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.polaroid-card:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.polaroid-card:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 10;
+    position: relative;
+    box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.polaroid-image {
+    width: 100%;
+    height: 220px;
+    background-color: var(--clr-bg-paper-dark);
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(30%) sepia(40%);
+    /* Nuansa usang pada foto */
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+.polaroid-caption h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--clr-text-main);
+    line-height: 1.3;
+}
+
+.polaroid-caption .mono-text {
+    color: var(--clr-olive);
+    font-size: 0.8rem;
+}
+
+/* --- Bagian Pengalaman (Timeline Vertikal) --- */
+.timeline {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+}
+
+/* Garis putus-putus vertikal di tengah */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-image: linear-gradient(to bottom, var(--clr-sepia) 50%, transparent 50%);
+    background-size: 2px 12px;
+    /* Efek garis putus-putus (dashed) */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: var(--clr-bg-paper);
+    border: 4px solid var(--clr-sepia);
+    border-radius: 50%;
+    top: 20px;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -9px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -9px;
+}
+
+.vintage-box {
+    background-color: rgba(255, 255, 255, 0.3);
+    /* Transparan */
+    border: 1px solid var(--clr-olive);
+    padding: 1.5rem;
+    /* Bayangan solid jadul */
+    box-shadow: 4px 4px 0px var(--clr-olive);
+}
+
+.timeline-content h3 {
+    margin-bottom: 0.2rem;
+    font-size: 1.3rem;
+}
+
+.timeline-content h4 {
+    font-size: 1rem;
+    color: var(--clr-olive);
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+}
+
+/* --- Footer & Kontak (Desain Amplop Pos Lawas) --- */
+.envelope-container {
+    background-color: #f0e9d6;
+    border: 2px solid var(--clr-sepia);
+    padding: 3rem;
+    width: 100%;
+    max-width: 650px;
+    position: relative;
+    box-shadow: inset 0 0 50px rgba(112, 66, 20, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.1);
+    /* Garis lipatan amplop via gradient */
+    background-image:
+        linear-gradient(to bottom right, transparent 49%, rgba(112, 66, 20, 0.3) 50%, transparent 51%),
+        linear-gradient(to bottom left, transparent 49%, rgba(112, 66, 20, 0.3) 50%, transparent 51%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-bottom: 3rem;
+}
+
+.envelope-form {
+    background-color: var(--clr-bg-paper);
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+    border: 1px dashed var(--clr-olive);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--clr-sepia);
+}
+
+.vintage-input {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--clr-olive);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--clr-text-main);
+    outline: none;
+}
+
+.vintage-input:focus {
+    border-bottom-color: var(--clr-sepia);
+}
+
+.stamp-btn {
+    background-color: var(--clr-bg-paper-dark);
+    color: var(--clr-sepia);
+    font-family: var(--font-mono);
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+.stamp-btn:hover {
+    background-color: var(--clr-sepia);
+    color: var(--clr-bg-paper);
+}
+
+.stamp-decoration {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+}
+
+/* Ornamen Perangko Jadul */
+.postage-stamp {
+    width: 60px;
+    height: 70px;
+    background-color: #d8cba8;
+    border: 2px dashed #8b7d5e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    color: #8b7d5e;
+    font-weight: bold;
+    transform: rotate(8deg);
+    /* Placeholder: Berikan background-image di sini jika punya aset perangko retro */
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: var(--clr-sepia);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--clr-olive);
+}
+
+.copyright {
+    color: var(--clr-olive);
+}
+
+.footer-simple {
+    padding: 3rem 2rem 2rem;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Responsivitas (Mobile) --- */
+@media (max-width: 768px) {
+    .vintage-nav ul {
+        gap: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .name-title {
+        font-size: 3rem;
+    }
+
+    /* Layout koran jadi 1 kolom di layar kecil */
+    .newspaper-layout .article-content {
+        column-count: 1;
+    }
+
+    /* Ubah timeline vertikal jadi satu sisi */
+    .timeline::after {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 0;
+        text-align: left !important;
+    }
+
+    .timeline-item:nth-child(even),
+    .timeline-item:nth-child(odd) {
+        left: 0;
+    }
+
+    .timeline-dot {
+        left: 11px !important;
+    }
+
+    .envelope-container {
+        padding: 1.5rem;
+    }
+}

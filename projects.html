@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsip Proyek - Portofolio Rekayasa Sistem Komputer</title>
+    <!-- Google Fonts: Playfair Display for classic serif, Courier Prime for typewriter feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Efek CRT / Noise Overlay -->
+    <div class="crt-noise"></div>
+
+    <!-- Navigasi Utama -->
+    <nav class="vintage-nav">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about.html">Tentang</a></li>
+            <li><a href="projects.html" class="active">Proyek</a></li>
+            <li><a href="experience.html">Pengalaman</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Bagian Galeri Proyek (Gaya Polaroid/Arsip) -->
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">Arsip Proyek</h2>
+
+        <!-- PANDUAN EDIT PROYEK:
+             1. Simpan file gambar proyek Anda di folder yang sama dengan file HTML (contoh: biogas.png)
+             2. Untuk menambahkan proyek baru, salin salah satu blok <article class="polaroid-card">...</article> di bawah ini.
+             3. Ubah url('...') pada polaroid-image dengan file gambar Anda, serta sesuaikan judul dan bahasa pemrograman yang digunakan.
+        -->
+
+        <div class="gallery-grid">
+            <!-- Proyek 1 -->
+            <article class="polaroid-card">
+                <!-- EDIT FOTO: Ganti 'biogas.png' dengan nama file gambar Anda -->
+                <div class="polaroid-image" style="background-image: url('Screenshot 2026-06-27 150444.png');">
+                </div>
+                <div class="polaroid-caption">
+                    <h3>Website Eduwisata & Reservasi (PPK Ormawa HIMAKOM 2025)</h3>
+                    <p class="mono-text">PHP | Laravel | MySQL | WhatsApp API</p>
+                    <p
+                        style="font-size: 0.85rem; margin-top: 0.5rem; color: #555; font-family: var(--font-serif); line-height: 1.4; text-align: justify;">
+                        <strong>Peran: Ketua PIC Tim IT.</strong> Mengembangkan Website Eduwisata, Sistem Informasi
+                        Layanan, dan Reservasi Online dengan metode pembayaran COD / WhatsApp. Didanai oleh
+                        Kemdiktisaintek.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Proyek 2 -->
+            <article class="polaroid-card">
+                <!-- EDIT FOTO: Ganti 'Biogas.png' dengan nama file gambar Anda -->
+                <div class="polaroid-image" style="background-image: url('Biogas.png');">
+                </div>
+                <div class="polaroid-caption">
+                    <h3>Sistem Monitoring Tekanan Biogas</h3>
+                    <p class="mono-text">ESP32 | Sensor Tekanan | IoT | Mobile Application</p>
+                </div>
+            </article>
+
+            <!-- Proyek 3 -->
+            <article class="polaroid-card">
+                <!-- EDIT FOTO: Ganti 'manajemen_data.png' dengan nama file gambar Anda -->
+                <div class="polaroid-image" style="background-image: url('manajemen_data.png');">
+                </div>
+                <div class="polaroid-caption">
+                    <h3>Sistem Manajemen Data Berbasis Web</h3>
+                    <p class="mono-text">HTML | CSS | JS | PHP</p>
+                </div>
+            </article>
+
+            <!-- Proyek 4 -->
+            <article class="polaroid-card">
+                <!-- EDIT FOTO: Ganti 'embedded.png' dengan nama file gambar Anda -->
+                <div class="polaroid-image" style="background-image: url('embedded.png');">
+                </div>
+                <div class="polaroid-caption">
+                    <h3>Smart Home Relay Controller</h3>
+                    <p class="mono-text">Arduino | WebSockets | IoT</p>
+                </div>
+            </article>
+
+
+        </div>
+    </section>
+
+    <!-- Footer Sederhana -->
+    <footer class="footer-simple">
+        <div class="social-links mono-text">
+            <a href="https://github.com/Xwan-byte" target="_blank">[ Github ]</a>
+            <a href="https://www.linkedin.com/in/adi-kurniawan-854523410/" target="_blank">[ LinkedIn ]</a>
+            <a href="mailto:adkawan04@gmail.com">[ Email ]</a>
+            <a href="https://wa.me/6289666614474" target="_blank">[ WhatsApp ]</a>
+        </div>
+        <p class="copyright mono-text">&copy; 2026. Ditulis dengan kode murni.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
